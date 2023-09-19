@@ -1,0 +1,44 @@
+server:
+  port: 9005
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${UDB_URL}
+    username: ${UDB_USERNAME:postgres}
+    password: ${UDB_PASSWORD:1904}
+
+  profiles:
+    active: default, native, dev
+  application:
+    name: MESSAGE_SERVICE
+
+  kafka:
+    bootstrap-servers: ${KAFKA_URL:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      client-id: id
+    consumer:
+      group-id: id
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    database: ${REDIS_DATA:1}
+
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: ${MAIL_ADDRESS}
+    password: ${MAIL_ACCESS_TOKEN}
+    port: 587
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          starttls.enable: true
+          starttls.required: true
+          auth: true
+          ssl.trust: smtp.gmail.com
