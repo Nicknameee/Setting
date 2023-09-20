@@ -1,9 +1,9 @@
 server:
-  port: 9005
+  port: 9003
 
 spring:
   application:
-    name: message
+    name: certification
 
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -28,19 +28,4 @@ spring:
   redis:
     host: ${REDIS_HOST:localhost}
     port: ${REDIS_PORT:6379}
-    database: ${REDIS_DATA:1}
-
-  mail:
-    default-encoding: UTF-8
-    host: smtp.gmail.com
-    username: ${MAIL_ADDRESS}
-    password: ${MAIL_ACCESS_TOKEN}
-    port: 587
-    protocol: smtp
-    properties:
-      mail:
-        smtp:
-          starttls.enable: true
-          starttls.required: true
-          auth: true
-          ssl.trust: smtp.gmail.com
+    database: ${REDIS_DATA:0}
