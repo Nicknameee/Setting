@@ -1,18 +1,9 @@
 server:
-  port: 9003
+  port: 9093
 
 spring:
   application:
-    name: certification
-
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: ${UDB_URL}
-    username: ${UDB_USERNAME:postgres}
-    password: ${UDB_PASSWORD:1904}
-
-  profiles:
-    active: default, native, dev
+    name: service
 
   kafka:
     bootstrap-servers: ${KAFKA_URL:localhost:9092}
@@ -29,7 +20,8 @@ logging:
   level:
     org.apache.kafka.clients: ERROR
 
-  redis:
-    host: ${REDIS_HOST:localhost}
-    port: ${REDIS_PORT:6379}
-    database: ${REDIS_DATA:0}
+api:
+  shipper:
+    np:
+      token: 07e4a86cc0f63f9ee4867b58c2034c5b
+      host: https://api.novaposhta.ua/v2.0/json/
