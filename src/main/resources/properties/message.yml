@@ -25,10 +25,6 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
-logging:
-  level:
-    org.apache.kafka.clients: ERROR
-
   redis:
     host: ${REDIS_HOST:localhost}
     port: ${REDIS_PORT:6379}
@@ -48,3 +44,7 @@ logging:
           starttls.required: true
           auth: true
           ssl.trust: smtp.gmail.com
+
+logging:
+  level:
+    org.apache.kafka.clients: ERROR
