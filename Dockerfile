@@ -14,7 +14,7 @@ RUN mvn dependency:go-offline
 COPY src ./src
 
 # Build the application
-RUN mvn clean install
+RUN mvn clean install -U
 
 # Expose the port that the application will run on
 EXPOSE 8888
