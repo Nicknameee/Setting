@@ -1,0 +1,17 @@
+version: '3.7'
+
+networks:
+  crm:
+    external: true
+
+services:
+  setting:
+    image: setting:latest
+    ports:
+      - "8888:8888"
+    environment:
+      - CONFIG_SERVER_LOGIN=user
+      - CONFIG_SERVER_PASSWORD=user
+      - SPRING_PROFILES_ACTIVE=default,native,dev
+    networks:
+      - crm
