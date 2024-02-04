@@ -7,6 +7,7 @@ networks:
 services:
   setting:
     image: setting:latest
+    container_name: settings
     ports:
       - "8888:8888"
     environment:
