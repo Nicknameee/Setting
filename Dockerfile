@@ -1,9 +1,6 @@
 # Use the official Maven image as the base image with Java 20
 FROM maven:3.9.4-amazoncorretto-20-al2023
 
-# Set the working directory in the container
-WORKDIR /app
-
 # Copy the pom.xml file to the container
 COPY pom.xml .
 
