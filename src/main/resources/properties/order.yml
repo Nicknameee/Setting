@@ -1,5 +1,6 @@
 server:
   port: 9015
+
 spring:
   application:
     name: order
@@ -8,11 +9,9 @@ spring:
     show-sql: false
     hibernate:
       ddl-auto: none
-
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   datasource:
@@ -44,3 +43,9 @@ spring:
 logging:
   level:
     org.apache.kafka.clients: ERROR
+
+api:
+  delivery:
+    nova:
+      host: ${NOVA_POST_HOST:https://api.novaposhta.ua/v2.0/json/}
+      token: ${NOVA_POST_TOKEN}
