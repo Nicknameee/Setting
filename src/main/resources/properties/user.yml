@@ -4,10 +4,6 @@ server:
 spring:
   application:
     name: user
-
-  profiles:
-    active: default, native, dev
-
   jpa:
     show-sql: false
     hibernate:
@@ -24,6 +20,9 @@ spring:
     url: ${DB_URL}
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:1904}
+
+  profiles:
+    active: default, native, dev
 
   flyway:
     url: ${DB_URL}
