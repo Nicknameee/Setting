@@ -4,15 +4,17 @@ server:
 spring:
   application:
     name: user
+
+  profiles:
+    active: default, native, dev
+
   jpa:
     show-sql: false
     hibernate:
       ddl-auto: none
-
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   datasource:
@@ -21,14 +23,23 @@ spring:
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:1904}
 
-  profiles:
-    active: default, native, dev
+  datasource-users:
+    driver-class-name: org.postgresql.Driver
+    url: ${USER_READER_DB_URL}
+    username: ${USER_READER_DB_USERNAME:postgres}
+    password: ${USER_READER_DB_PASSWORD:1904}
+
+  redis-users:
+    host: ${REDIS_HOST_INFRASTRUCTURE:localhost}
+    port: ${REDIS_PORT_INFRASTRUCTURE:6379}
+    database: ${REDIS_DATABASE_INFRASTRUCTURE:0}
+    password: ${REDIS_PASSWORD_INFRASTRUCTURE:1904}
 
   flyway:
     url: ${DB_URL}
     user: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:1904}
-    locations: classpath:migration
+    locations: classpath:migrations
     out-of-order: true
     baseline-on-migrate: true
     enabled: true

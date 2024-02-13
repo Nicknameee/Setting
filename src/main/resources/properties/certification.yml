@@ -5,14 +5,26 @@ spring:
   application:
     name: certification
 
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: ${UDB_URL}
-    username: ${UDB_USERNAME:postgres}
-    password: ${UDB_PASSWORD:1904}
-
   profiles:
     active: default, native, dev
+
+  datasource-users:
+    driver-class-name: org.postgresql.Driver
+    url: ${USER_READER_DB_URL}
+    username: ${USER_READER_DB_USERNAME:postgres}
+    password: ${USER_READER_DB_PASSWORD:1904}
+
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    database: ${REDIS_DATABASE:3}
+    password: ${REDIS_PASSWORD:1904}
+
+  redis-users:
+    host: ${REDIS_HOST_INFRASTRUCTURE:localhost}
+    port: ${REDIS_PORT_INFRASTRUCTURE:6379}
+    database: ${REDIS_DATABASE_INFRASTRUCTURE:0}
+    password: ${REDIS_PASSWORD_INFRASTRUCTURE:1904}
 
   kafka:
     bootstrap-servers: ${KAFKA_URL:localhost:9092}
@@ -24,11 +36,6 @@ spring:
       group-id: id
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-
-  redis:
-    host: ${REDIS_HOST:localhost}
-    port: ${REDIS_PORT:6379}
-    database: ${REDIS_DATA:0}
 
 logging:
   level:
