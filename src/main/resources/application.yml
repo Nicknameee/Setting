@@ -2,6 +2,9 @@ server:
   port: 8888
 
 spring:
+  application:
+    name: setting
+
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:default, native, dev}
     default: ${SPRING_PROFILES_ACTIVE:default, native, dev}
