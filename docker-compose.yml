@@ -13,6 +13,6 @@ services:
     environment:
       - CONFIG_SERVER_LOGIN=user
       - CONFIG_SERVER_PASSWORD=user
-      - SPRING_PROFILES_ACTIVE=default,native,dev
+      - SPRING_PROFILES_ACTIVE=default,native,dev,elk
     networks:
       - crm
