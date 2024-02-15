@@ -5,9 +5,6 @@ spring:
   application:
     name: order
 
-  profiles:
-    active: default, native, dev
-
   jpa:
     show-sql: false
     hibernate:

@@ -7,7 +7,6 @@ spring:
 
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:default, native, dev}
-    default: ${SPRING_PROFILES_ACTIVE:default, native, dev}
 
   security:
     user:

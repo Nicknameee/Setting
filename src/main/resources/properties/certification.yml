@@ -5,9 +5,6 @@ spring:
   application:
     name: certification
 
-  profiles:
-    active: default, native, dev
-
   datasource-users:
     driver-class-name: org.postgresql.Driver
     url: ${USER_READER_DB_URL}
