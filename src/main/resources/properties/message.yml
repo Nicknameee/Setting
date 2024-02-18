@@ -58,6 +58,14 @@ spring:
           auth: true
           ssl.trust: smtp.gmail.com
 
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://user:user@localhost:8888/eureka
+
 logging:
   level:
     org.apache.kafka.clients: ERROR

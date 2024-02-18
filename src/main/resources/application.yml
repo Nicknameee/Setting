@@ -18,6 +18,15 @@ spring:
       server:
         native:
           search-locations: classpath:/properties
+        prefix: /cloud
 
 encrypt:
   key: dnjjdn38389mMKMDmdkmkdemk4fdm
+
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://user:user@localhost:8888/eureka

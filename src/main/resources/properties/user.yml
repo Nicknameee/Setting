@@ -52,6 +52,14 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://user:user@localhost:8888/eureka
+
 logging:
   level:
     org.apache.kafka.clients: ERROR
