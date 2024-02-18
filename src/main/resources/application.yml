@@ -18,10 +18,10 @@ spring:
       server:
         native:
           search-locations: classpath:/properties
-        prefix: /cloud
+        prefix: ${SPRING_CLOUD_CONTEXT_PREFIX:/cloud}
 
 encrypt:
-  key: dnjjdn38389mMKMDmdkmkdemk4fdm
+  key: ${SPRING_CLOUD_CIPHER_KEY:key}
 
 eureka:
   client:
@@ -29,4 +29,4 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://user:user@localhost:8888/eureka
+      defaultZone: ${EUREKA_SERVER_URL:http://${EUREKA_SERVER_LOGIN:user}:${EUREKA_SERVER_PASSWORD:user}@localhost:8888/eureka}

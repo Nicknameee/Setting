@@ -53,12 +53,10 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
 eureka:
-  instance:
-    hostname: localhost
   client:
     registry-fetch-interval-seconds: 5
     service-url:
-      defaultZone: http://user:user@localhost:8888/eureka
+      defaultZone: ${EUREKA_SERVER_URL:http://${EUREKA_SERVER_LOGIN:user}:${EUREKA_SERVER_PASSWORD:user}@localhost:8888/eureka}
 
 logging:
   level:
