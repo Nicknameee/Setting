@@ -12,12 +12,11 @@ services:
       - "8888:8888"
     environment:
       - SPRING_PROFILES_ACTIVE=default,native,dev,elk
-      - CONFIG_SERVER_LOGIN=user
-      - CONFIG_SERVER_PASSWORD=user
-      - SPRING_CLOUD_CONTEXT_PREFIX=/cloud
-      - SPRING_CLOUD_CIPHER_KEY=dnjjdn38389mMKMDmdkmkdemk4fdm
+      - SPRING_SECURITY_USER_NAME=user
+      - SPRING_SECURITY_USER_PASSWORD=user
+      - SPRING_CLOUD_CONFIG_SERVER_PREFIX=/cloud
+      - ENCRYPT_KEY=keyshot
       - EUREKA_SERVER_URL=http://user:user@setting:8888/eureka
-      - EUREKA_SERVER_LOGIN=user
-      - EUREKA_SERVER_PASSWORD=user
+      - LOGSTASH_URL=logstash:5000
     networks:
       - crm

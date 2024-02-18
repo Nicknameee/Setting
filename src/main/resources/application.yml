@@ -10,18 +10,18 @@ spring:
 
   security:
     user:
-      name: ${CONFIG_SERVER_LOGIN:user}
-      password: ${CONFIG_SERVER_PASSWORD:user}
+      name: ${SPRING_SECURITY_USER_NAME:user}
+      password: ${SPRING_SECURITY_USER_PASSWORD:user}
 
   cloud:
     config:
       server:
         native:
           search-locations: classpath:/properties
-        prefix: ${SPRING_CLOUD_CONTEXT_PREFIX:/cloud}
+        prefix: ${SPRING_CLOUD_CONFIG_SERVER_PREFIX:/cloud}
 
 encrypt:
-  key: ${SPRING_CLOUD_CIPHER_KEY:key}
+  key: ${ENCRYPT_KEY:key}
 
 eureka:
   client:
@@ -29,4 +29,4 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: ${EUREKA_SERVER_URL:http://${EUREKA_SERVER_LOGIN:user}:${EUREKA_SERVER_PASSWORD:user}@localhost:8888/eureka}
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8888/eureka}

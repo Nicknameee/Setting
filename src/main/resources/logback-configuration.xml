@@ -1,5 +1,5 @@
 <configuration>
-    <springProperty scope="context" name="application" source="spring.application.name"/>
+    <springProperty scope="context" name="application" source="spring.application.name" defaultValue="setting"/>
 
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -8,7 +8,7 @@
     </appender>
 
     <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>${LOGSTASH_HOST:-localhost:5000}</destination>
+        <destination>${LOGSTASH_URL:-localhost:5000}</destination>
         <encoder>
             <pattern>%date{ISO8601_PATTERN} [${application}] [%-5level] [%thread] %logger{36} %msg %n</pattern>
         </encoder>
