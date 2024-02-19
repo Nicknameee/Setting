@@ -17,4 +17,4 @@ RUN mvn clean install -U
 EXPOSE 8888
 
 # Specify the command to run the application
-CMD ["java" ,"-jar", "target/Setting-LATEST.jar"]
+CMD ["java" , "-Xms512m", "-jar", "target/Setting-LATEST.jar"]
