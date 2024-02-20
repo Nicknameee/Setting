@@ -59,6 +59,8 @@ spring:
           ssl.trust: smtp.gmail.com
 
 eureka:
+  instance:
+    instance-id: ${EUREKA_INSTANCE_ID:localhost:${server.port}}
   client:
     registry-fetch-interval-seconds: 5
     service-url:

@@ -35,6 +35,8 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
 eureka:
+  instance:
+    instance-id: ${EUREKA_INSTANCE_ID:localhost:${server.port}}
   client:
     registry-fetch-interval-seconds: 5
     service-url:

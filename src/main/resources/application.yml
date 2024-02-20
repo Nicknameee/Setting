@@ -25,8 +25,20 @@ encrypt:
 
 eureka:
   client:
+    healthcheck:
+      enabled: true
     registry-fetch-interval-seconds: 5
     register-with-eureka: false
     fetch-registry: false
     service-url:
       defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8888/eureka}
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: when_authorized
+  endpoints:
+    web:
+      exposure:
+        include: "*"
