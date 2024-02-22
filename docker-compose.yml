@@ -14,9 +14,9 @@ services:
       - SPRING_PROFILES_ACTIVE=default,native,dev,elk
       - SPRING_SECURITY_USER_NAME=user
       - SPRING_SECURITY_USER_PASSWORD=user
-      - SPRING_CLOUD_CONFIG_SERVER_PREFIX=/cloud
       - ENCRYPT_KEY=keyshot
-      - EUREKA_CLIENT_SERVICE_URL=http://user:user@host.docker.internal:8888/eureka
+      - EUREKA_CLIENT_SERVICE_URL=http://user:user@host.docker.internal:8889/eureka
+      - EUREKA_INSTANCE_ID=host.docker.internal:8888
       - LOGSTASH_URL=logstash:5000
     networks:
       - crm

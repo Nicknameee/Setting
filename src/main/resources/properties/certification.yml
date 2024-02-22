@@ -40,7 +40,7 @@ eureka:
   client:
     registry-fetch-interval-seconds: 5
     service-url:
-      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8888/eureka}
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8889/eureka}
 
 logging:
   level:

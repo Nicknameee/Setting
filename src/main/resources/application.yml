@@ -18,20 +18,21 @@ spring:
       server:
         native:
           search-locations: classpath:/properties
-        prefix: ${SPRING_CLOUD_CONFIG_SERVER_PREFIX:/cloud}
 
 encrypt:
   key: ${ENCRYPT_KEY:key}
 
 eureka:
+  instance:
+    instance-id: ${EUREKA_INSTANCE_ID:localhost:${server.port}}
   client:
     healthcheck:
       enabled: true
     registry-fetch-interval-seconds: 5
-    register-with-eureka: false
+    register-with-eureka: true
     fetch-registry: false
     service-url:
-      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8888/eureka}
+      defaultZone: ${EUREKA_CLIENT_SERVICE_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8889/eureka}
 
 management:
   endpoint:
