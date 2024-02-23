@@ -54,7 +54,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: ${EUREKA_INSTANCE_ID:localhost:${server.port}}
+    instance-id: ${EUREKA_INSTANCE_ID:${spring.application.name}:${server.port}}
     hostname: ${EUREKA_HOSTNAME:localhost}
   client:
     registry-fetch-interval-seconds: 5
