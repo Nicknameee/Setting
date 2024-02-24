@@ -21,7 +21,7 @@ spring:
 
   datasource-users:
     driver-class-name: org.postgresql.Driver
-    url: ${USER_READER_DB_URL}
+    url: ${USER_READER_DB_URL:jdbc:postgresql://localhost:5432/users}
     username: ${USER_READER_DB_USERNAME:postgres}
     password: ${USER_READER_DB_PASSWORD:1904}
 
