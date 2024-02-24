@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: ${SPRING_APPLICATION_NAME:user}
+    name: ${SPRING_APPLICATION_NAME:User}
 
   security:
     user:
