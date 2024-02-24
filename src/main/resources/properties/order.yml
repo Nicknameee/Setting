@@ -1,9 +1,17 @@
 server:
-  port: 9015
+  port: ${SERVER_PORT:9015}
 
 spring:
   application:
-    name: order
+    name: ${SPRING_APPLICATION_NAME:Order}
+
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:default, native, dev}
+
+  security:
+    user:
+      name: ${SPRING_SECURITY_USER_NAME:user}
+      password: ${SPRING_SECURITY_USER_PASSWORD:user}
 
   jpa:
     show-sql: false
@@ -16,7 +24,7 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${DB_URL}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/orders}
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:1904}
 
@@ -33,7 +41,7 @@ spring:
     password: ${REDIS_PASSWORD_INFRASTRUCTURE:1904}
 
   flyway:
-    url: ${DB_URL}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/orders}
     user: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:1904}
     locations: classpath:migrations
@@ -54,7 +62,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: ${EUREKA_INSTANCE_ID:${spring.application.name}:${server.port}}
+    instance-id: ${EUREKA_INSTANCE_ID:${spring.application.name:Order}:${server.port}}
     hostname: ${EUREKA_HOSTNAME:localhost}
   client:
     registry-fetch-interval-seconds: 5

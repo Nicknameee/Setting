@@ -1,9 +1,14 @@
 server:
-  port: 9005
+  port: ${SERVER_PORT:9005}
 
 spring:
   application:
-    name: message
+    name: ${SPRING_APPLICATION_NAME:Message}
+
+  security:
+    user:
+      name: ${SPRING_SECURITY_USER_NAME:user}
+      password: ${SPRING_SECURITY_USER_PASSWORD:user}
 
   jpa:
     show-sql: false
@@ -60,7 +65,7 @@ spring:
 
 eureka:
   instance:
-    instance-id: ${EUREKA_INSTANCE_ID:${spring.application.name}:${server.port}}
+    instance-id: ${EUREKA_INSTANCE_ID:${spring.application.name:Message}:${server.port}}
     hostname: ${EUREKA_HOSTNAME:localhost}
   client:
     registry-fetch-interval-seconds: 5

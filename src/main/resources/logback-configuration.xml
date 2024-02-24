@@ -1,5 +1,5 @@
 <configuration>
-    <springProperty scope="context" name="application" source="spring.application.name" defaultValue="setting"/>
+    <springProperty scope="context" name="application" source="spring.application.name" defaultValue="Setting"/>
 
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
