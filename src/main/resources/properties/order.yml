@@ -31,6 +31,12 @@ spring:
     username: ${USER_READER_DB_USERNAME:postgres}
     password: ${USER_READER_DB_PASSWORD:1904}
 
+  datasource-resources:
+    driver-class-name: org.postgresql.Driver
+    url: ${RESOURCE_DB_URL:jdbc:postgresql://localhost:5432/resources}
+    username: ${RESOURCE_DB_USERNAME:resources}
+    password: ${RESOURCE_DB_PASSWORD:1904}
+
   redis-users:
     host: ${REDIS_HOST_INFRASTRUCTURE:localhost}
     port: ${REDIS_PORT_INFRASTRUCTURE:6379}
@@ -41,7 +47,16 @@ spring:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/orders}
     user: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:1904}
-    locations: classpath:migrations
+    locations: classpath:migrations/orders
+    out-of-order: true
+    baseline-on-migrate: true
+    enabled: true
+
+  flyway-resources:
+    url: ${RESOURCE_DB_URL:jdbc:postgresql://localhost:5432/resources}
+    user: ${RESOURCE_DB_USERNAME:resources}
+    password: ${RESOURCE_DB_PASSWORD:1904}
+    locations: classpath:migrations/resources
     out-of-order: true
     baseline-on-migrate: true
     enabled: true
@@ -68,6 +83,7 @@ eureka:
 
 logging:
   level:
+    io.management: DEBUG
     org.apache.kafka.clients: ERROR
 
 api:
@@ -75,3 +91,9 @@ api:
     nova:
       host: ${NOVA_POST_HOST:https://api.novaposhta.ua/v2.0/json/}
       token: ${NOVA_POST_TOKEN}
+  resources:
+    images:
+      size: ${CLOUDINARY_FILES_SIZE_LIMIT:25}
+      host: ${CLOUDINARY_HOST:https://api.cloudinary.com/v1_1/dqjeb0ob2/image}
+      key: ${CLOUDINARY_KEY:474919738819372}
+      secret: ${CLOUDINARY_SECRET:SlJA8pvuSIgcPX1CoAagGE-qWyE}

@@ -25,6 +25,12 @@ spring:
     username: ${USER_READER_DB_USERNAME:postgres}
     password: ${USER_READER_DB_PASSWORD:1904}
 
+  datasource-resources:
+    driver-class-name: org.postgresql.Driver
+    url: ${RESOURCE_DB_URL:jdbc:postgresql://localhost:5432/resources}
+    username: ${RESOURCE_DB_USERNAME:resources}
+    password: ${RESOURCE_DB_PASSWORD:1904}
+
   redis:
     host: ${REDIS_HOST:localhost}
     port: ${REDIS_PORT:6379}
@@ -36,6 +42,15 @@ spring:
     port: ${REDIS_PORT_INFRASTRUCTURE:6379}
     database: ${REDIS_DATABASE_INFRASTRUCTURE:0}
     password: ${REDIS_PASSWORD_INFRASTRUCTURE:1904}
+
+  flyway-resources:
+    url: ${RESOURCE_DB_URL:jdbc:postgresql://localhost:5432/resources}
+    user: ${RESOURCE_DB_USERNAME:resources}
+    password: ${RESOURCE_DB_PASSWORD:1904}
+    locations: classpath:migrations/resources
+    out-of-order: true
+    baseline-on-migrate: true
+    enabled: true
 
   kafka:
     bootstrap-servers: ${KAFKA_URL:localhost:9092}
