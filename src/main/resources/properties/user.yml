@@ -76,6 +76,8 @@ eureka:
   instance:
     instance-id: ${EUREKA_INSTANCE_ID:${spring.application.name:User}:${server.port}}
     hostname: ${EUREKA_HOSTNAME:localhost}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 7
   client:
     registry-fetch-interval-seconds: 5
     service-url:
@@ -85,3 +87,11 @@ logging:
   level:
     io.management: DEBUG
     org.apache.kafka.clients: ERROR
+
+api:
+  resources:
+    images:
+      size: ${CLOUDINARY_FILES_SIZE_LIMIT:25}
+      host: ${CLOUDINARY_HOST:https://api.cloudinary.com/v1_1/dqjeb0ob2/image}
+      key: ${CLOUDINARY_KEY:474919738819372}
+      secret: ${CLOUDINARY_SECRET:SlJA8pvuSIgcPX1CoAagGE-qWyE}

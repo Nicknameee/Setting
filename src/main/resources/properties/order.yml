@@ -76,6 +76,8 @@ eureka:
   instance:
     instance-id: ${EUREKA_INSTANCE_ID:${spring.application.name:Order}:${server.port}}
     hostname: ${EUREKA_HOSTNAME:localhost}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 7
   client:
     registry-fetch-interval-seconds: 5
     service-url:
