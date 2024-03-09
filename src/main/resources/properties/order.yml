@@ -87,6 +87,8 @@ logging:
   level:
     io.management: DEBUG
     org.apache.kafka.clients: ERROR
+    com.netflix.discovery: ERROR
+    org.springframework.cache: TRACE
 
 api:
   delivery:
