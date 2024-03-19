@@ -19,5 +19,6 @@ services:
       - EUREKA_INSTANCE_ID=Setting:8888
       - EUREKA_HOSTNAME=host.docker.internal
       - LOGSTASH_URL=logstash:5000
+      - SPRING_BOOT_ADMIN_CLIENT_URL=http://user:user@discovery:8889/management
     networks:
       - crm

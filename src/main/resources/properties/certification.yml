@@ -63,6 +63,13 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 
+  boot:
+    admin:
+      client:
+        url: ${SPRING_BOOT_ADMIN_CLIENT_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8889/management}
+        username: ${SPRING_SECURITY_USER_NAME:user}
+        password: ${SPRING_SECURITY_USER_PASSWORD:user}
+
 eureka:
   instance:
     instance-id: ${EUREKA_INSTANCE_ID:${spring.application.name:Certification}:${server.port}}

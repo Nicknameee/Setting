@@ -19,6 +19,13 @@ spring:
         native:
           search-locations: classpath:/properties
 
+  boot:
+    admin:
+      client:
+        url: ${SPRING_BOOT_ADMIN_CLIENT_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8889/management}
+        username: ${SPRING_SECURITY_USER_NAME:user}
+        password: ${SPRING_SECURITY_USER_PASSWORD:user}
+
 encrypt:
   key: ${ENCRYPT_KEY:key}
 
@@ -40,9 +47,8 @@ eureka:
 management:
   endpoint:
     health:
-      enabled: true
-      show-details: when_authorized
+      show-details: WHEN_AUTHORIZED
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: '*'
