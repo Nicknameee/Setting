@@ -9,6 +9,7 @@ spring:
     user:
       name: ${SPRING_SECURITY_USER_NAME:user}
       password: ${SPRING_SECURITY_USER_PASSWORD:user}
+      roles: USER
 
   jpa:
     show-sql: false
@@ -101,6 +102,7 @@ logging:
     io.management: DEBUG
     org.apache.kafka.clients: ERROR
     com.netflix.discovery: ERROR
+    root: INFO
 
 api:
   resources:
