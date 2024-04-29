@@ -11,9 +11,8 @@ services:
     ports:
       - "8888:8888"
     environment:
+      - SERVER_PORT=8888
       - SPRING_PROFILES_ACTIVE=default,native,dev,elk
-      - SPRING_SECURITY_USER_NAME=user
-      - SPRING_SECURITY_USER_PASSWORD=user
       - ENCRYPT_KEY=keyshot
       - EUREKA_CLIENT_SERVICE_URL=http://user:user@discovery:8889/eureka
       - EUREKA_INSTANCE_ID=Setting:8888

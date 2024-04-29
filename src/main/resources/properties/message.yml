@@ -85,13 +85,15 @@ spring:
         url: ${SPRING_BOOT_ADMIN_CLIENT_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8889/management}
         username: ${SPRING_SECURITY_USER_NAME:user}
         password: ${SPRING_SECURITY_USER_PASSWORD:user}
+        instance:
+          service-base-url: http://host.docker.internal:${server.port}
 
 eureka:
   instance:
     instance-id: ${EUREKA_INSTANCE_ID:${spring.application.name:Message}:${server.port}}
     hostname: ${EUREKA_HOSTNAME:localhost}
     lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 7
+    lease-expiration-duration-in-seconds: 60
   client:
     registry-fetch-interval-seconds: 5
     service-url:

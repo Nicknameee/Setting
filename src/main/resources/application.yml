@@ -25,6 +25,8 @@ spring:
         url: ${SPRING_BOOT_ADMIN_CLIENT_URL:http://${SPRING_SECURITY_USER_NAME:user}:${SPRING_SECURITY_USER_PASSWORD:user}@localhost:8889/management}
         username: ${SPRING_SECURITY_USER_NAME:user}
         password: ${SPRING_SECURITY_USER_PASSWORD:user}
+        instance:
+          service-base-url: http://host.docker.internal:${server.port}
 
 encrypt:
   key: ${ENCRYPT_KEY:key}
